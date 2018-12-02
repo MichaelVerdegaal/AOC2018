@@ -5,3 +5,4 @@ while True:
         result += eval(line)
         if result in seen: print(result)
         else: seen.add(result)
+print(result)
