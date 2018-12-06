@@ -16,15 +16,14 @@ def combust(poly_list: list) -> int:
     return size
 
 possible_poly = set()
-for poly in polymer:
-    if not poly == poly.lower():
+for unit in polymer:
+    if not unit == unit.lower():
         continue
-    if poly not in possible_poly:
-        possible_poly.add(poly)
+    if unit not in possible_poly:
+        possible_poly.add(unit)
 smallest = None
-for non_poly in possible_poly:
-    polmerList = list(
-        polymer.replace(non_poly, '').replace(non_poly.upper(), ''))
+for excluded_unit in possible_poly:
+    polmerList = list(polymer.replace(excluded_unit, '').replace(excluded_unit.upper(), ''))
     poly_size = combust(polmerList)
     if smallest is None or poly_size < smallest:
         smallest = poly_size
